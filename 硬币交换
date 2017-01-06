@@ -1,0 +1,9 @@
+def make_change(am,c = [1,5,10,25],hand =None):
+    ...:     hand =[] if hand is None else hand
+    ...:     if am == 0:
+    ...:         yield hand
+    ...:     for co in c:
+    ...:         if co > am or (len(hand)>0 and hand[-1] < co):
+    ...:             continue
+    ...:         for result in make_change(am - co,c,hand=hand+[co] ):
+    ...:             yield result
